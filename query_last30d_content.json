@@ -1,0 +1,29 @@
+{
+  "_source": [
+    "content",
+    "path"
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "now-30d/d"
+            }
+          }
+        },
+        {
+          "exists": {
+            "field": "content"
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    {
+      "@timestamp": "desc"
+    }
+  ]
+}

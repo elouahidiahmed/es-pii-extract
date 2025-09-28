@@ -1,0 +1,16 @@
+{
+  "actions": [
+    {
+      "remove": {
+        "index": "cs_appalaches",
+        "alias": "cs_current"
+      }
+    },
+    {
+      "add": {
+        "index": "cs_appalaches_v2",
+        "alias": "cs_current"
+      }
+    }
+  ]
+}

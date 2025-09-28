@@ -1,0 +1,81 @@
+# Sensitive data (Canada / Québec) — STRICT (Education + URLs)
+
+- name: NAS
+  desc: "NAS (strict) — 123-456-789 ou 123456789."
+  regex: "\b(?:\d{3}-\d{3}-\d{3}|\d{9})\b"
+  normalize: nas
+
+- name: QC_RAMQ
+  desc: "RAMQ (strict approx.) — LLLL YYMMDD XX ; MM peut être 50–62 (mois+50)."
+  regex: "(?i)\b[A-Z]{4}[-\s]?(?:\d{2})(?:0[1-9]|1[0-2]|5[0-9]|6[0-2])(?:0[1-9]|[12]\d|3[01])[-\s]?\d{2}\b"
+  flags: IGNORECASE
+
+- name: QC_PERM_CODE
+  desc: "Code permanent MEQ (strict approx.) — LLLL YYMMDD XX."
+  regex: "(?i)\b[A-Z]{4}[-\s]?\d{2}(?:0[1-9]|1[0-2]|5[0-9]|6[0-2])(0[1-9]|[12]\d|3[01])[-\s]?[A-Z0-9]{2}\b"
+  flags: IGNORECASE
+
+- name: STUDENT_ID
+  desc: "Matricule/Student ID (strict) — 7–10 chiffres précédés d’un mot-clé."
+  regex: "(?i)\b(?:matricule|id(?:entifiant)?(?:\s*d['e]\s*étudiant)?|student\s*id)\s*[:#]?\s*\b\d{7,10}\b"
+  flags: IGNORECASE
+
+- name: DOB_ISO
+  desc: "Date (ISO strict) — AAAA-MM-JJ."
+  regex: "\b(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])\b"
+
+- name: DOB_FR
+  desc: "Date (FR strict) — JJ/MM/AAAA."
+  regex: "\b(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/(19|20)\d{2}\b"
+
+- name: EMAIL
+  desc: "Adresse e-mail (strict)."
+  regex: "(?i)\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,63}\b"
+  flags: IGNORECASE
+
+- name: PHONE_CA
+  desc: "Téléphone CA (strict NANP) — +1 optionnel, NXX-NXX-XXXX."
+  regex: "\b(?:\+?1[\s\-.]?)?(?:\(?[2-9]\d{2}\)?[\s\-.]?)[2-9]\d{2}[\s\-.]?\d{4}\b"
+
+- name: POSTAL_CA
+  desc: "Code postal CA (strict) — A1A 1A1."
+  regex: "\b[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][\s-]?\d[ABCEGHJ-NPRSTV-Z]\d\b"
+  flags: IGNORECASE
+
+- name: IP_V4
+  desc: "IPv4 (strict octets 0–255)."
+  regex: "\b(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)\b"
+
+- name: IP_V6
+  desc: "IPv6 (strict, basique)."
+  regex: "(?i)\b(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}\b"
+  flags: IGNORECASE
+
+- name: CREDIT_CARD
+  desc: "Carte paiement (strict regex; pas de Luhn)."
+  regex: "\b(?:\d{16}|\d{4}([ -])\d{4}\1\d{4}\1\d{4}|3[47]\d{13})\b"
+
+- name: CA_BANK_NUMBERS
+  desc: "Banque CA (plus strict, mots-clés transit/institution/compte)."
+  regex: "(?i)\btransit[:\s]*\d{5}\b.*\binstitution[:\s]*\d{3}\b.*\bcompte[:\s]*\d{7,12}\b"
+  flags: IGNORECASE
+
+- name: FILE_NUMBER
+  desc: "Numéro de dossier (strict, FR/EN)."
+  regex: "(?i)\b(?:num(?:éro)?\s*de\s*dossier|dossier|file\s*no\.?|case\s*id)\s*[:#]?\s*[A-Z0-9][A-Z0-9\-_/]{3,18}\b"
+  flags: IGNORECASE
+
+- name: SCHOOL_CODE
+  desc: "Code établissement (strict)."
+  regex: "(?i)\b(?:code\s*(?:établissement|école)|school\s*code)\s*[:#]?\s*[A-Z0-9][A-Z0-9\-_/]{2,10}\b"
+  flags: IGNORECASE
+
+- name: URL_HTTP
+  desc: "URL http(s) — schéma obligatoire."
+  regex: "(?i)\bhttps?://(?:[A-Z0-9-]+\.)+[A-Z]{2,63}(?::\d{2,5})?(?:/[^\s]*)?\b"
+  flags: IGNORECASE
+
+- name: URL_WWW
+  desc: "URL commençant par www. (sans schéma)."
+  regex: "(?i)\bwww\.(?:[A-Z0-9-]+\.)+[A-Z]{2,63}(?:/[^\s]*)?\b"
+  flags: IGNORECASE

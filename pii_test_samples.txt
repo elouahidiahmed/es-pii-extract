@@ -1,0 +1,61 @@
+# PII Test Samples — Canada / Québec (Education) — Synthetic Data
+# All data below is fictitious and for testing only.
+
+## NAS (SIN)
+Dossier: NAS: 123-456-789 lié à l'inscription.
+Ancienne mention NAS compact: 987654321.
+NAS avec espaces: 111 222 333.
+NAS avec tiret unicode: 222–333–444 (tiret en-dash).
+
+## RAMQ (approx strict)
+RAMQ: ABCD65123112
+RAMQ avec séparateurs: ABCD-651231-12
+
+## Code permanent (MEQ approx strict)
+Code permanent: EFGH 930215 Z1
+Code permanent compact: IJKL930215Z2
+
+## Student ID (strict, avec mot-clé)
+Matricule: 2023456789
+Student ID: 7654321
+
+## Dates de naissance (strict)
+DOB ISO: 2004-09-21
+DOB FR: 21/09/2004
+
+## Email (strict)
+Courriel parent: parent.example+test@ecole.qc.ca
+Courriel étudiant: alex.tremblay@univ-mtl.ca
+
+## Téléphone CA (strict NANP)
+Contact: (418) 555-1234
+Bureau: 581-602-7788
+Intl: +1 438 700 9988
+
+## Code postal CA (strict)
+Adresse: 320 Rue Test, Québec QC, G1A 0A2
+Autre: H2X-3L4
+
+## Adresses IP
+Serveur local: 192.168.10.42
+IPv6 campus: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+
+## Cartes de paiement (regex strict, valeurs de test)
+Visa: 4111 1111 1111 1111
+Mastercard: 5555-5555-5555-4444
+Amex: 378282246310005
+
+## Banque CA (heuristique stricte)
+Coordonnées: transit 12345, institution 001, compte 123456789
+
+## Numéro de dossier (strict)
+Numéro de dossier: ABC-2024-EDU-019
+File No.: CASE-UNIV-0001
+
+## Code établissement (strict)
+Code établissement: SCH-123
+School code: UDEM-42
+
+## URLs
+Site de l'école: https://www.ecole.exemple.qc.ca/programmes/info
+Portail étudiant: www.portail.universite.ca/login

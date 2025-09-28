@@ -1,0 +1,9 @@
+{
+  "_source": [
+    "content",
+    "path"
+  ],
+  "query": {
+    "match_all": {}
+  }
+}
