@@ -57,5 +57,5 @@ Code établissement: SCH-123
 School code: UDEM-42
 
 ## URLs
-Site de l'école: https://www.ecole.exemple.qc.ca/programmes/info
-Portail étudiant: www.portail.universite.ca/login
+Site de l'école: https://www.organisation.exemple.qc.ca/programmes/info
+Portail étudiant: www.portail.ca/login

@@ -29,13 +29,13 @@ The tool can:
 ### Extract only (CSV output)
 
 ```bash
-python es_pii_extract_update.py   --es-url http://localhost:9200   --index cs_appalaches   --user elastic --password secret   --detectors-yaml detectors.yaml   --out pii_extract.csv   --dedupe
+python es_pii_extract_update.py   --es-url http://localhost:9200   --index index_name   --user elastic --password secret   --detectors-yaml detectors.yaml   --out pii_extract.csv   --dedupe
 ```
 
 ### Extract + Update Elasticsearch documents
 
 ```bash
-python es_pii_extract_update.py   --es-url http://localhost:9200   --index cs_appalaches   --user elastic --password secret   --apply-updates   --detectors-yaml detectors.yaml   --field-map "NAS=nas_norm,EMAIL=emails,PHONE_CA=phones,POSTAL_CA=postal_codes,QC_RAMQ=ramq,QC_PERM_CODE=qc_perm_code,STUDENT_ID=student_ids,URL_HTTP=urls,URL_WWW=urls"   --out pii_extract.csv   --dedupe
+python es_pii_extract_update.py   --es-url http://localhost:9200   --index index_name   --user elastic --password secret   --apply-updates   --detectors-yaml detectors.yaml   --field-map "NAS=nas_norm,EMAIL=emails,PHONE_CA=phones,POSTAL_CA=postal_codes,QC_RAMQ=ramq,QC_PERM_CODE=qc_perm_code,STUDENT_ID=student_ids,URL_HTTP=urls,URL_WWW=urls"   --out pii_extract.csv   --dedupe
 ```
 
 - `--apply-updates`: Enables bulk updates in Elasticsearch.
@@ -51,7 +51,7 @@ The repository includes `pii_test_samples.txt`, which contains fake examples of 
 Before running updates, ensure the fields exist in Elasticsearch with the right type (preferably `keyword`):
 
 ```json
-PUT cs_appalaches/_mapping
+PUT index_name/_mapping
 {
   "properties": {
     "nas_norm": { "type": "keyword" },
@@ -89,7 +89,7 @@ docker run --rm es-pii-extract:latest --help
 Run extract (example):
 
 ```bash
-docker run --rm -e ES_URL=http://host.docker.internal:9200 -e ES_INDEX=cs_appalaches \
+docker run --rm -e ES_URL=http://host.docker.internal:9200 -e ES_INDEX=index_name \
   -e ES_USER=elastic -e ES_PASSWORD=secret es-pii-extract:latest \
   --es-url $ES_URL --index $ES_INDEX --user $ES_USER --password $ES_PASSWORD \
   --detectors-yaml detectors.yaml --out /app/pii_extract.csv --dedupe
@@ -104,7 +104,7 @@ Example command:
 ```powershell
 python es_pii_extract_update.py `
   --es-url https://127.0.0.1:9200 `
-  --index cs_appalaches `
+  --index index_name `
   --user elastic `
   --password "secret" `
   --no-verify-tls `
@@ -120,14 +120,14 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE).
 
 
 ## Kibana / Index Alias Example
-Switch an alias `cs_current` from `cs_appalaches` to `cs_appalaches_v2`:
+Switch an alias `cs_current` from `index_name` to `index_name_v2`:
 
 ```bash
 POST /_aliases
 {
   "actions": [
-    {"remove": {"index": "cs_appalaches", "alias": "cs_current"}},
-    {"add":    {"index": "cs_appalaches_v2", "alias": "cs_current"}}
+    {"remove": {"index": "index_name", "alias": "cs_current"}},
+    {"add":    {"index": "index_name_v2", "alias": "cs_current"}}
   ]
 }
 ```
