@@ -4,7 +4,8 @@ This project provides a **Python utility** and a set of **regex detectors** for 
 information (PII — Personally Identifiable Information) in **Canada / Québec**, with a focus on the **education sector**.
 
 The tool can:
-- Parse documents already indexed in **Elasticsearch**.
+- Parse documents already indexed in **Elasticsearch** by **FSCrawler: https://github.com/dadoonet/fscrawler**.
+
 - Extract sensitive fields such as NAS, RAMQ, permanent code, student IDs, emails, phone numbers, postal codes, IPs, credit cards, etc.
 - Write results to a **CSV** for auditing.
 - Optionally, update the original documents in Elasticsearch by appending normalized values to specific fields (without overwriting existing data).
